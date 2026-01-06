@@ -2,12 +2,13 @@ const express = require("express");
 const mongoose = require("mongoose");
 
 const app = express();
+
 mongoose
   .connect(
-    "mongodb+srv://luciedevcode:Test1234@cluster0-pme76.mongodb.net/test?retryWrites=true&w=majority"
+    "mongodb+srv://lucie:CDZ1TewVwHgsSTPp@grimoire.jwf0u6q.mongodb.net/?appName=Grimoire"
   )
   .then(() => console.log("Connexion à MongoDB réussie !"))
-  .catch(() => console.log("Connexion à MongoDB échouée !"));
+  .catch((err) => console.error("Connexion à MongoDB échouée !", err));
 
 app.use(express.json());
 
@@ -56,3 +57,6 @@ app.post("/api/books", (req, res, next) => {
 });
 
 module.exports = app;
+
+// lucie CDZ1TewVwHgsSTPp
+// mongodb+srv://lucie:CDZ1TewVwHgsSTPp@grimoire.jwf0u6q.mongodb.net/?appName=Grimoire
