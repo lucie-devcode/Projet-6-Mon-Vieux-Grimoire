@@ -1,13 +1,15 @@
 const express = require("express");
-const auth = require("../middleware/auth");
 const router = express.Router();
+
+const auth = require("../middleware/auth");
+const multer = require("../middleware/multer-config");
 
 const bookCtrl = require("../controllers/book");
 
 // Route POST pour créer un book
-router.post("/", auth, bookCtrl.createBook);
+router.post("/", auth, multer, bookCtrl.createBook);
 // Route PUT pour modifier un book
-router.put("/:id", auth, bookCtrl.modifyBook);
+router.put("/:id", auth, multer, bookCtrl.modifyBook);
 // Route DELETE pour supprimer un book
 router.delete("/:id", auth, bookCtrl.deleteBook);
 // Route GET pour récupérer un book spécifique

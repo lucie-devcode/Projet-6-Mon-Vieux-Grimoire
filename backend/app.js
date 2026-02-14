@@ -4,6 +4,8 @@ const mongoose = require("mongoose");
 const bookRoutes = require("./routes/books");
 const userRoutes = require("./routes/user");
 
+const path = require("path");
+
 require("dotenv").config();
 
 // Connexion à MongoDB
@@ -34,8 +36,6 @@ app.use(express.json());
 
 app.use("/api/books", bookRoutes);
 app.use("/api/auth", userRoutes);
+app.use("/images", express.static(path.join(__dirname, "images")));
 
 module.exports = app;
-
-// lucie CDZ1TewVwHgsSTPp
-// mongodb+srv://lucie:CDZ1TewVwHgsSTPp@grimoire.jwf0u6q.mongodb.net/?appName=Grimoire
