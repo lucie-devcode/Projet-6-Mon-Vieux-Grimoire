@@ -17,6 +17,9 @@ mongoose
   .catch((err) => console.error("Connexion à MongoDB échouée !", err));
 
 const app = express();
+app.use(express.urlencoded({ extended: true }));
+
+app.use(express.json());
 
 // Headers pour autoriser CORS
 app.use((req, res, next) => {
@@ -37,4 +40,5 @@ app.use(express.json());
 app.use("/api/books", bookRoutes);
 app.use("/api/auth", userRoutes);
 app.use("/images", express.static(path.join(__dirname, "images")));
+
 module.exports = app;
